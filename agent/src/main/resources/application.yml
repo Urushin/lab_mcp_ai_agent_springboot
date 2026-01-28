@@ -1,0 +1,16 @@
+github:
+  owner: ${GITHUB_OWNER}
+  repo: ${GITHUB_REPO}
+
+anthropic:
+  api-key: ${ANTHROPIC_API_KEY}
+  model: claude-sonnet-4-20250514
+  max-tokens: 800
+  timeout-seconds: 60
+
+mcp:
+  base-url: http://localhost:3333
+  path: /mcp
+
+server:
+  port: 8080

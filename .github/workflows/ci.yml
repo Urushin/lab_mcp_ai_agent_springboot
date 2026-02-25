@@ -27,6 +27,10 @@ jobs:
 
       - name: Build & Test
         run: ./gradlew --no-daemon clean test
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_OWNER: ${{ secrets.REPO_OWNER }}
+          GITHUB_REPO: ${{ secrets.REPO_NAME }}
 
   docker-build:
     runs-on: ubuntu-latest

@@ -1,12 +1,12 @@
 github:
-  owner: ${GITHUB_OWNER}
-  repo: ${GITHUB_REPO}
+  owner: test-owner
+  repo: test-repo
 
 gemini:
-  api-key: ${GEMINI_API_KEY}
+  api-key: test-key
   model: gemini-2.0-flash
-  max-tokens: 800
-  timeout-seconds: 60
+  max-tokens: 100
+  timeout-seconds: 10
 
 mcp:
   base-url: http://localhost:3333

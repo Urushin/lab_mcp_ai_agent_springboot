@@ -10,8 +10,8 @@ public class PropertiesConfig {
     public record GithubProperties(String owner, String repo) {
     }
 
-    @ConfigurationProperties(prefix = "anthropic")
-    public record AnthropicProperties(
+    @ConfigurationProperties(prefix = "gemini")
+    public record GeminiProperties(
             String apiKey,
             String model,
             Integer maxTokens,

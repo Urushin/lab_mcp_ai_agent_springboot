@@ -31,7 +31,7 @@ public class LangChainConfig {
         tools.forEach(t -> System.out.println(" - " + t.getClass().getName()));
 
         return AiServices.builder(BacklogAgent.class)
-                .chatModel(model)
+                .chatLanguageModel(model)
                 .tools(tools.toArray())
                 .build();
     }

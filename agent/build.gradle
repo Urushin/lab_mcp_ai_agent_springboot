@@ -24,8 +24,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework:spring-webflux'
 
-	// LangChain4j BOM (pins everything to 1.0.0)
-	implementation platform('dev.langchain4j:langchain4j-bom:1.0.0')
+	// LangChain4j BOM (pins everything to 0.36.2)
+	implementation platform('dev.langchain4j:langchain4j-bom:0.36.2')
 
 	// LangChain4j core + Gemini
 	implementation 'dev.langchain4j:langchain4j'

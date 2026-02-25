@@ -2,34 +2,31 @@ package com.example.agent.config;
 
 import com.example.agent.agent.BacklogAgent;
 import com.example.agent.tools.AgentTool;
-import dev.langchain4j.model.anthropic.AnthropicChatModel;
+import dev.langchain4j.model.googleai.GoogleAiGeminiChatModel;
 import dev.langchain4j.service.AiServices;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.time.Duration;
 import java.util.List;
 
 @Configuration
 public class LangChainConfig {
 
     @Bean
-    public AnthropicChatModel anthropicChatModel(
-            @Value("${anthropic.api-key}") String apiKey,
-            @Value("${anthropic.model}") String model,
-            @Value("${anthropic.max-tokens:800}") Integer maxTokens,
-            @Value("${anthropic.timeout-seconds:60}") Integer timeoutSeconds) {
-        return AnthropicChatModel.builder()
+    public GoogleAiGeminiChatModel geminiChatModel(
+            @Value("${gemini.api-key}") String apiKey,
+            @Value("${gemini.model}") String model,
+            @Value("${gemini.max-tokens:800}") Integer maxOutputTokens) {
+        return GoogleAiGeminiChatModel.builder()
                 .apiKey(apiKey)
                 .modelName(model)
-                .maxTokens(maxTokens)
-                .timeout(Duration.ofSeconds(timeoutSeconds))
+                .maxOutputTokens(maxOutputTokens)
                 .build();
     }
 
     @Bean
-    public BacklogAgent backlogAgent(AnthropicChatModel model, List<AgentTool> tools) {
+    public BacklogAgent backlogAgent(GoogleAiGeminiChatModel model, List<AgentTool> tools) {
         System.out.println("=== Agent tools loaded: " + tools.size() + " ===");
         tools.forEach(t -> System.out.println(" - " + t.getClass().getName()));
 

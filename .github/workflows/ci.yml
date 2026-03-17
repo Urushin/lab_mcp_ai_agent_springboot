@@ -64,7 +64,7 @@ jobs:
           timeout_seconds: 10
           max_attempts: 6
           command: |
-            curl -fsS "$(minikube service ai-agent --url)/actuator/health"
+            curl -fsS "$(minikube service ai-agent --url | tail -n 1)/actuator/health"
 
       - name: Log pods on failure
         if: failure()

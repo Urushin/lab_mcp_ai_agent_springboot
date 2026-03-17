@@ -1,9 +1,9 @@
 github:
-  owner: ${GITHUB_OWNER}
-  repo: ${GITHUB_REPO}
+  owner: ${GITHUB_OWNER:default}
+  repo: ${GITHUB_REPO:default}
 
 gemini:
-  api-key: ${GEMINI_API_KEY}
+  api-key: ${GEMINI_API_KEY:default}
   model: gemini-2.0-flash
   max-tokens: 800
   timeout-seconds: 60

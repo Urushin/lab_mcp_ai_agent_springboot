@@ -14,6 +14,7 @@ import java.util.List;
 public class LangChainConfig {
 
     @Bean
+    @org.springframework.context.annotation.Profile("!ci")
     public GoogleAiGeminiChatModel geminiChatModel(
             @Value("${gemini.api-key}") String apiKey,
             @Value("${gemini.model}") String model,
@@ -26,7 +27,7 @@ public class LangChainConfig {
     }
 
     @Bean
-    public BacklogAgent backlogAgent(GoogleAiGeminiChatModel model, List<AgentTool> tools) {
+    public BacklogAgent backlogAgent(dev.langchain4j.model.chat.ChatLanguageModel model, List<AgentTool> tools) {
         System.out.println("=== Agent tools loaded: " + tools.size() + " ===");
         tools.forEach(t -> System.out.println(" - " + t.getClass().getName()));
 
